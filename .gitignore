@@ -1,4 +1,3 @@
-SmellDetector/*
 plots/*
 *.mtc0
 *.run.xml
@@ -6,10 +5,7 @@ plots/*
 *.zip
 *.bak
 slurm_output/*
-data/optimization_data/*
-data/*.pdf
 cached_values/*
-data/*.p
 *.ini
 *.tmp
 comment.cut
@@ -48,7 +44,6 @@ comment.cut
 *.fdb_latexmk
 *acmart.pdf
 *.synctex.gz*
-*.csv
 *.xlsx
 *.brf
 
