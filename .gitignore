@@ -58,6 +58,7 @@ dev_notebooks/
 elections/stv/cand_dfex.csv
 elections/stv/voters_dfex.csv
 data/fullUS_individuals_with_FIP_6M_balanced_allelections.csv
+data/fullUS_individuals_with_FIP_6M_balanced_allelections_dem_partisan_score-party.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
