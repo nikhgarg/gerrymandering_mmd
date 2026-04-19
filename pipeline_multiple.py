@@ -149,25 +149,6 @@ def meta_pipeline(custom_parameters, save_file="cached_values/run_outputs.csv"):
     output_df = pd.concat([output_df, pd.DataFrame(outputs)])
     output_df.to_csv(save_file, index=False)
 
-    #
-    # for maphash, competition_df, map_characteristics in map_generator:
-    #     numdone += 1
-    #     print(numdone, maphash, end=" ")
-    #     for voting_function in voting_functions:
-    #         method_hash_cols = relevant_params_for_cache_per_voting_method.get(voting_function, []) + relevant_params_for_cache_all
-    #         methodsettingshash = get_param_str_from_dict({x: params[x] for x in method_hash_cols})
-    #         overallhash = methodsettingshash + maphash + voting_function
-    #         if overallhash in done_outputs:
-    #             print("skipping because already done: ", overallhash)
-    #         else:
-    #             paramsloc = copy.copy(params)
-    #             paramsloc["VOTING_METHOD"] = voting_function
-    #             competition_df["voting_method"] = voting_function
-    #             output = {"overall_hash": overallhash, "map_hash": maphash, "settings_hash": methodsettingshash}
-    #             output.update(map_characteristics)
-    #             output.update(pipeline(voters_df, competition_df, candidates_df, paramsloc))
-    #             output.update({x: params[x] for x in method_hash_cols})
-    #             outputs.append(output)
     return output_df
 
 

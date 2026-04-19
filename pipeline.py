@@ -53,10 +53,6 @@ def pipeline(custom_parameters):
 
     else:
         candidates_df = None
-    # return voters_df, candidates_df
-    # return voters_df, candidates_df, competition_df, validation_df, params
-
-    # print(params)
 
     print("calculating winners")
     competition_df = elections.determine_winners.determine_winners(voters_df, competition_df, params, candidates_df)
@@ -65,4 +61,3 @@ def pipeline(custom_parameters):
     metric_calculations, competition_df = metrics_median.calculate_all_metrics(voters_df, competition_df, params)
     return voters_df, competition_df, validation_df, metric_calculations, candidates, params
 
-    # return voters_df, candidates_df, competition_df, validation_df, metric_calculations, params

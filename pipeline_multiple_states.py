@@ -45,7 +45,7 @@ def voting_function_map_generator(voting_functions, map_generator, done_outputs,
                 ):
                     continue  # if a map is an optimal map for some voting method, then only use that map for that voting method
             method_hash_cols = relevant_params_for_cache_per_voting_method.get(voting_function, []) + relevant_params_for_cache_all
-            methodsettingshash = get_param_str_from_dict({x: params[x] for x in method_hash_cols})
+            methodsettingshash = get_param_str_from_dict({x: params.get(x, None) for x in method_hash_cols})
             overallhash = methodsettingshash + maphash + voting_function
             # print("skipping because already done: ", overallhash)
             if not overallhash in done_outputs:
@@ -54,7 +54,7 @@ def voting_function_map_generator(voting_functions, map_generator, done_outputs,
                 competition_df["voting_method"] = voting_function
                 output = {"overall_hash": overallhash, "map_hash": maphash, "settings_hash": methodsettingshash, "state": state}
                 output.update(map_characteristics)
-                output.update({x: params[x] for x in method_hash_cols})
+                output.update({x: params[x] for x in method_hash_cols if x in params})
 
                 yield (competition_df, paramsloc, output)
             else:
@@ -87,9 +87,6 @@ def meta_pipeline_states(custom_parameters, save_file_template="cached_values/ru
     numdone = 0
     foldersavesloc = foldersaves  # params.get("folder_save", foldersaves)
 
-    # print(voters_df.head())
-    # print(params)
-    # print(params["maps_per_setting_num"])
     per_setting_num = params["maps_per_setting_num"]
     setting_nums = params.get("maps_per_setting_num_order", list(range(20, per_setting_num, 20))) + [per_setting_num]
     minutes_freq_to_save = params.get("minutes_freq_to_save", 1)
@@ -109,7 +106,7 @@ def meta_pipeline_states(custom_parameters, save_file_template="cached_values/ru
             if "stv" in voting_functions:
                 print("creating candidates and calculating voter rankings")
                 relevant_params_for_stv_cache = relevant_params_for_cache_per_voting_method["stv"] + relevant_params_for_cache_all
-                paramcachestr = get_param_str_from_dict({x: params[x] for x in relevant_params_for_stv_cache}) + state
+                paramcachestr = get_param_str_from_dict({x: params.get(x, None) for x in relevant_params_for_stv_cache}) + state
                 candidates_df, voters_df_loc, params = get_candidates_and_voter_preferences_for_stv(
                     voters_df_loc, params, paramcachestr, foldersavesloc
                 )
@@ -118,10 +115,6 @@ def meta_pipeline_states(custom_parameters, save_file_template="cached_values/ru
                 )  # in loading old parameters that were added with candidates, some things might have been overwritten
             else:
                 candidates_df = None
-            # return
-            # print(voters_df.head())
-            # print(voters_df_loc.columns)
-            # print(params["maps_per_setting_num"])
 
             map_generator = map_generators[params["MAP_GENERATOR"]](
                 state,

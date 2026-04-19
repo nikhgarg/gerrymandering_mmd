@@ -17,6 +17,9 @@ relevant_params_for_cache_per_voting_method = {
         "N_CANDIDATES_PER_DISTRICT_GROUP",
         "DISTANCE_FUNCTION",
         "N_STV_CANDIDATES_MAX",
+        'ranking_method',
+        'noise_distribution',
+        'noise_parameters'
     ]
 }
 
@@ -25,4 +28,16 @@ voting_function_multiple_names_map = {
     "thiele_pav": "thiele_pav",
     "thiele_approvalindependent": "thiele_independent",
     "thiele_squared": "thiele_squared",
+}
+
+
+# distributions for voter ranking noise
+settings_normal_noise = {
+    "noise_distribution": "normal",
+    "noise_parameters": {"loc": 0, "scale": 1},
+}
+
+settings_gumbel_noise = {
+    "noise_distribution": "gumbel",
+    "noise_parameters": {"loc": 0, "scale": 1},
 }
