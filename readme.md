@@ -30,6 +30,12 @@ This repository is organized as follows:
      - computing the proportionality and competitiveness results for each state and overall, for each set of maps (fair, random, and optimized for each party)
      - setting up and running STV elections for the intra-party results. 
 
+Figure reproduction note:
+ - `usevisualization_202601_withgerrymanderinggap.ipynb` is the main notebook for the proportionality, gerrymandering, competitiveness, and intra-party plots built from cached organized outputs.
+ - `20260103_plot_proportionality_by_noise_rightmaps.ipynb` reproduces the voter-noise / crossover robustness plots.
+ - `20260418_regenerate_hr4000_figs_4_9_10.ipynb` is a notebook for the HR4000 / Fair Representation Act comparison plots from the currently available cached artifacts.
+ - `visualize_plans.ipynb` produces the Texas and Illinois appendix plan panels.
+ - Historical pipeline launch scripts used to generate cached outputs are archived in `server_run_files/`.
 
 
 data/ description:
