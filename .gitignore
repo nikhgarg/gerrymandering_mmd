@@ -55,6 +55,9 @@ optimize/optimization_results/*
 optimize/third_party_tmp.ipynb
 .vscode/
 dev_notebooks/
+elections/stv/cand_dfex.csv
+elections/stv/voters_dfex.csv
+data/fullUS_individuals_with_FIP_6M_balanced_allelections.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
