@@ -4,6 +4,9 @@ from helpers import *
 from maps.district_map_helpers import *
 import os
 
+def census_tract_string(x):
+    return str("{:011d}".format(int(x)) if len(str(int(x))) < 11 else str(int(x)))
+
 
 def from_optimization_and_sampling_runs_per_state(
     state, state_num, maps_per_district_num_setting=None, district_directory="C:/Users/Nikhi/Box/Gerrymandering_and_Social_Choice/"
@@ -259,8 +262,5 @@ def from_sample_OH_maps(filename="data/multi_member_district_sample_plans.p", st
             maphash = get_map_hash_string(map)
             map_characteristics = {"state": state, "state_num": state_num, "N_districts": num_districts}
             yield maphash, map, map_characteristics
-            # if enmap > 10:
-            # break
-
 
 map_generators = {x.__name__: x for x in [from_sample_OH_maps, from_optimization_and_sampling_runs_per_state]}

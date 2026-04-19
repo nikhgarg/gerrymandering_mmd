@@ -6,7 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.lines import Line2D
-from optimize_pipeline import calculate_statewide_average_voteshare_with_third_party
+# from optimize_pipeline import calculate_statewide_average_voteshare_with_third_party
+
+from helpers import calculate_statewide_average_voteshare_with_third_party
 
 
 state_constants = {
