@@ -16,6 +16,7 @@ def create_candidates_data(p, voters_df):
         statestr = census_tract_string(census)[0:2]
         voters_in_tract = voters_df.query("census_block==@census")
         for group in voters_in_tract[p["GROUP_COL"]].unique():
+            # print("Creating candidates for group ", group, " in census ", census, " in state ", statestr)
             votersparty = voters_in_tract.query("{}==@group".format(p["GROUP_COL"]))
             _, bins = pd.qcut(votersparty["dem_partisan_score"], num_candidates_per_district_group, retbins=True, duplicates="drop")
             # print(bins, len(bins))

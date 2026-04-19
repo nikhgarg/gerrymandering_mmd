@@ -10,6 +10,8 @@ def party_first_then_feature0(voter_row, candidate_row, feature0name, groupname)
 def party_first_then_partisanscore(voter_row, candidate_row, groupname):
     return party_first_then_feature0(voter_row, candidate_row, "dem_partisan_score", groupname)
 
+def just_partisanscore(voter_row, candidate_row, groupname):
+    return abs(voter_row["dem_partisan_score"] - candidate_row["dem_partisan_score"])
 
 def party_first_then_geographicdistance(voter_row, candidate_row, groupname, lat="x", long="y"):
     distance = euclidean_cached((voter_row[lat], voter_row[long]), (candidate_row[lat], candidate_row[long]))
@@ -17,4 +19,5 @@ def party_first_then_geographicdistance(voter_row, candidate_row, groupname, lat
     return -1000 * (voter_row[groupname] == candidate_row[groupname]) + np.log(distance + 1)
 
 
-distance_function_mapper = {x.__name__: x for x in [party_first_then_partisanscore, party_first_then_geographicdistance]}
+distance_function_mapper = {x.__name__: x for x in [party_first_then_partisanscore
+                                                    , party_first_then_geographicdistance, just_partisanscore]}

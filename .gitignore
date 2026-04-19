@@ -1,4 +1,6 @@
+data/shapes/*
 plots/*
+output/*
 *.mtc0
 *.run.xml
 *main.pdf
@@ -51,6 +53,8 @@ optimize/optimization_results/*
 
 # misc testing notebook for third party dev
 optimize/third_party_tmp.ipynb
+.vscode/
+dev_notebooks/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
