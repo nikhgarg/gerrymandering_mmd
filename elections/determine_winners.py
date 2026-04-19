@@ -23,11 +23,21 @@ def determine_winners(voters_df, competition_df, params, candidates_df=None):
         district_num = district_row.district
         state_num = district_row.state_num
         n_winners = district_row.N_WINNERS_PER_DISTRICT
+        
+        # print(voters.head())
+        
         if district_row.voting_method == "stv":  # need candidates as argument
             ballots = list(voters["state_{}_ranking".format(state_num)].dropna())
             candidates_local = candidates_df[
                 candidates_df.census_block.isin(district_row.census_block)
             ]
+            
+            # added 9/13 so that number candidates in the distrct from each party are the same as number of winners
+            candidates_local_sampled = candidates_local.groupby('party').apply(
+                lambda x: x.sample(n=min(len(x), n_winners))).reset_index(drop=True)
+
+            candidates_local = candidates_local_sampled
+            
             candidlist = list(candidates_local.id)
             ballots = [[x for x in y if x in candidlist] for y in ballots]
             (

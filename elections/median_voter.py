@@ -101,7 +101,6 @@ def get_thiele_median_scores_2parties(
                     + [newscores[coh]] * winners_by_party[party]
                 )
                 
-    # print(cohesion_scores)
     # Calculate marginal medians for each winner
     # Do as follows: calculate winners sequentially for 1 ... num_winners-1. For each, that gives me the weighage per party using the theile functions with the appropriate number of winners for the next winner. Calculate the median on this weighted set as before.
     # does assume that all the partisan scores are ordered by party (nonoverapping)

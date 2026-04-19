@@ -9,6 +9,9 @@ This file contains functions for how "cohesive" a set of voters who elected a wi
 how cohesive are they along various dimensions (e.g., partisan score average distance, geographic distance)
 """
 
+import warnings
+warnings.filterwarnings('ignore', message='Setting an item of incompatible dtype is deprecated')
+
 
 # Given a set of scores X, cohesion is defined as the standard deviation: (E(E[X] - X)^2)^.5
 def generic_singledimensionscore_cohesion(voters_who_selected_winner, voter_weights, score_column, column_name=None):
