@@ -4,7 +4,8 @@ import os
 import copy
 import numpy as np
 import pandas as pd
-from pysal.lib.weights import Queen
+# from pysal.lib.weights import Queen
+from libpysal.weights import Queen
 from matplotlib.colors import LinearSegmentedColormap as LSC
 import matplotlib.pyplot as plt
 import seaborn as sns

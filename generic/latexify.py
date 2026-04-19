@@ -68,10 +68,23 @@ def latexify(fig_width=None, fig_height=None, columns=1):
 
     params = {
         # 'backend': 'ps',
+    # 'backend': 'ps',
         "pgf.rcfonts": False,
-        "pgf.preamble": ["\\usepackage{gensymb,amsmath}", "\\usepackage[dvipsnames]{xcolor}", "\\usepackage{lmodern}"],
+        # "pgf.preamble": '\n'.join([
+        #     "\\PassOptionsToPackage{dvipsnames}{xcolor}",
+        #     "\\usepackage{gensymb,amsmath}", 
+        #     "\\usepackage{lmodern}"
+        # ]),
+        # "pgf.texsystem": "pdflatex",
+        # "text.latex.preamble": '\n'.join([
+        #     "\\PassOptionsToPackage{dvipsnames}{xcolor}",
+        #     "\\usepackage{gensymb,amsmath}", 
+        #     "\\usepackage{lmodern}"
+        # ]),
+        "pgf.preamble": '\n'.join(["\\usepackage{gensymb,amsmath}", "\\usepackage{lmodern}"]),  # Removed xcolor
         "pgf.texsystem": "pdflatex",
-        "text.latex.preamble": ["\\usepackage{gensymb,amsmath}", "\\usepackage[dvipsnames]{xcolor}", "\\usepackage{lmodern}"],
+        "text.latex.preamble": '\n'.join(["\\usepackage{gensymb,amsmath}", "\\usepackage{lmodern}"]),  # Removed xcolor
+
         # values below are useful defaults. individual plot fontsizes are
         # modified as necessary.
         "axes.labelsize": 13,  # fontsize for x and y labels
