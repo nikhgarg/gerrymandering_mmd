@@ -1,12 +1,12 @@
 This repository contains code for the paper following paper:
 
-@inproceedings{garg2022combatting,
-  title={Combatting gerrymandering with social choice: The design of multi-member districts},
-  author={Garg, Nikhil and Gurnee, Wes and Rothschild, David and Shmoys, David},
-  booktitle={Proceedings of the 23rd ACM Conference on Economics and Computation},
-  pages={560--561},
-  year={2022}
-}
+• @article{garg2026combatting,
+    author  = {Garg, Nikhil and Gurnee, Wes and Rothschild, David and Shmoys, David},
+    title   = {Combatting Gerrymandering with Ranked Choice Voting: An Experimental Analysis of Multi-Member Districts in the United States},
+    journal = {Operations Research},
+    year    = {2026},
+    note    = {Forthcoming}
+  }
 
 Full version on arXiv: https://arxiv.org/abs/2107.07083
 
